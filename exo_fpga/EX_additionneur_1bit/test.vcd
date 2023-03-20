@@ -1,0 +1,49 @@
+$date
+	Thu Mar 09 11:44:56 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module stimulus $end
+$var wire 1 ! s $end
+$var wire 1 " rout $end
+$var reg 1 # a $end
+$var reg 1 $ b $end
+$var reg 1 % rin $end
+$scope module uut $end
+$var wire 1 # a $end
+$var wire 1 $ b $end
+$var wire 1 % rin $end
+$var wire 1 " rout $end
+$var wire 1 ! s $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0%
+0$
+0#
+0"
+0!
+$end
+#20000
+1!
+1#
+#40000
+1"
+0!
+1$
+#60000
+1!
+1%
+#80000
+0!
+0$
+#120000
