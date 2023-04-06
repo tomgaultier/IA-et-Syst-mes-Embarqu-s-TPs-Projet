@@ -1,2 +1,2 @@
 # IA-et-Syst-mes-Embarqu-s-TPs-Projet
-Dépôt comprenant le TP transpiler des régressions et arbre de décision, le TP verilotg, et le projet
+Dépôt comprenant les TP transpiler des régressions et arbre de décision en C, de la régression linéaire en Verilog et le projet
