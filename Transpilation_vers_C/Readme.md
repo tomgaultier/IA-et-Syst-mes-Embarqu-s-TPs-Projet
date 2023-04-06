@@ -28,7 +28,7 @@ Le script **transpile_decision_tree** récupère le modèle et crée le code C d
 Il faut ensuite compile le code C avec la commande : **gcc decision_tree.c -o decision_tree**
 Et l'exécuter avec la commande : **decision_tree.exe**
 
-## Transpiler des trois modèle
+## Transpiler des trois modèles
 
 Dans le fichier **"Menu"**, vous trouverez un code qui demande à l' utilisateur s'il veut transpiler une régression linéaire, une régression logistique ou un arbre de décision.
 Selon le choix, il fera la même chose que les codes précédents
