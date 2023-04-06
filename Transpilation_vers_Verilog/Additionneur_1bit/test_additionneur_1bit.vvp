@@ -1,0 +1,76 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000204a95c5ff0 .scope module, "stimulus" "stimulus" 2 4;
+ .timescale -9 -12;
+v00000204a95d3c60_0 .var "a", 0 0;
+v00000204a95d3d00_0 .var "b", 0 0;
+v00000204a95d3da0_0 .var "rin", 0 0;
+v00000204a95d3b20_0 .net "rout", 0 0, L_00000204a958b2e0;  1 drivers
+v00000204a95d3f80_0 .net "s", 0 0, L_00000204a958b740;  1 drivers
+S_00000204a95d53a0 .scope module, "uut" "additionneur_1bit" 2 13, 3 1 0, S_00000204a95c5ff0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "rin";
+    .port_info 3 /OUTPUT 1 "s";
+    .port_info 4 /OUTPUT 1 "rout";
+L_00000204a958b6d0 .functor XOR 1, v00000204a95d3c60_0, v00000204a95d3d00_0, C4<0>, C4<0>;
+L_00000204a958b740 .functor XOR 1, L_00000204a958b6d0, v00000204a95d3da0_0, C4<0>, C4<0>;
+L_00000204a958b970 .functor AND 1, v00000204a95d3c60_0, v00000204a95d3d00_0, C4<1>, C4<1>;
+L_00000204a958b3c0 .functor AND 1, v00000204a95d3c60_0, v00000204a95d3da0_0, C4<1>, C4<1>;
+L_00000204a958b9e0 .functor OR 1, L_00000204a958b970, L_00000204a958b3c0, C4<0>, C4<0>;
+L_00000204a958b430 .functor AND 1, v00000204a95d3d00_0, v00000204a95d3da0_0, C4<1>, C4<1>;
+L_00000204a958b2e0 .functor OR 1, L_00000204a958b9e0, L_00000204a958b430, C4<0>, C4<0>;
+v00000204a958b0d0_0 .net *"_ivl_0", 0 0, L_00000204a958b6d0;  1 drivers
+v00000204a95c7620_0 .net *"_ivl_10", 0 0, L_00000204a958b430;  1 drivers
+v00000204a95d5530_0 .net *"_ivl_4", 0 0, L_00000204a958b970;  1 drivers
+v00000204a95d55d0_0 .net *"_ivl_6", 0 0, L_00000204a958b3c0;  1 drivers
+v00000204a95d5670_0 .net *"_ivl_8", 0 0, L_00000204a958b9e0;  1 drivers
+v00000204a95d5710_0 .net "a", 0 0, v00000204a95d3c60_0;  1 drivers
+v00000204a95860f0_0 .net "b", 0 0, v00000204a95d3d00_0;  1 drivers
+v00000204a9586190_0 .net "rin", 0 0, v00000204a95d3da0_0;  1 drivers
+v00000204a9586230_0 .net "rout", 0 0, L_00000204a958b2e0;  alias, 1 drivers
+v00000204a95862d0_0 .net "s", 0 0, L_00000204a958b740;  alias, 1 drivers
+    .scope S_00000204a95c5ff0;
+T_0 ;
+    %vpi_call 2 22 "$dumpfile", "test.vcd" {0 0 0};
+    %vpi_call 2 23 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000204a95c5ff0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000204a95d3c60_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000204a95d3d00_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000204a95d3da0_0, 0, 1;
+    %delay 20000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000204a95d3c60_0, 0, 1;
+    %delay 20000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000204a95d3d00_0, 0, 1;
+    %delay 20000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000204a95d3da0_0, 0, 1;
+    %delay 20000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000204a95d3d00_0, 0, 1;
+    %delay 40000, 0;
+    %end;
+    .thread T_0;
+    .scope S_00000204a95c5ff0;
+T_1 ;
+    %vpi_call 2 38 "$monitor", "t=%3d a=%d,b=%d,rin=%d,s=%d,rout=%d \012", $time, v00000204a95d3c60_0, v00000204a95d3d00_0, v00000204a95d3da0_0, v00000204a95d3f80_0, v00000204a95d3b20_0, " " {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "test_additionneur_1bit.v";
+    "./additionneur_1bit.v";
